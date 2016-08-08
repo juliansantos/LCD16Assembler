@@ -1,0 +1,64 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon Aug 08 11:35:00 2016
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000fa
+                   .cinit    romdata   0x00007d    program   0x000004
+.config_2007_BUILD/DEFAULT/PRODUCTION/LCD16FA       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00007e      
+                            0x002007    0x002007      
+            128 out of 2182 program addresses used, program memory utilization is 5%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  command   0x00003e    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                   ctrLCD   0x000053    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d0   0x000046    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d1   0x000049    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d2   0x00004f    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                delay10ms   0x000044    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                delayW0ms   0x00004e    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                    init1   0x00002a    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+            initialconfig   0x00000f    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+            initialmsgLCD   0x000004    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                 initmsg1   0x000005    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                     main   0x000001    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                     msg1   0x000059    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                     msg2   0x00006b    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                    pData   0x000038    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+              pulseEnable   0x000034    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000001    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+            initialmsgLCD   0x000004    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                 initmsg1   0x000005    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+            initialconfig   0x00000f    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                    init1   0x00002a    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+              pulseEnable   0x000034    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                    pData   0x000038    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                  command   0x00003e    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                delay10ms   0x000044    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d0   0x000046    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d1   0x000049    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                delayW0ms   0x00004e    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                       d2   0x00004f    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                   ctrLCD   0x000053    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                     msg1   0x000059    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+                     msg2   0x00006b    program     static C:\Users\Julian Santos\MPLABXProjects\LCD16FAssembler.X\LCD16FASM.asm
+
+

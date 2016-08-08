@@ -1,0 +1,4 @@
+Message[302] C:\USERS\JULIAN SANTOS\MPLABXPROJECTS\LCD16FASSEMBLER.X\LCD16FASM.ASM 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JULIAN SANTOS\MPLABXPROJECTS\LCD16FASSEMBLER.X\LCD16FASM.ASM 56 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JULIAN SANTOS\MPLABXPROJECTS\LCD16FASSEMBLER.X\LCD16FASM.ASM 64 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\JULIAN SANTOS\MPLABXPROJECTS\LCD16FASSEMBLER.X\LCD16FASM.ASM 69 : Register in operand not in bank 0.  Ensure that bank bits are correct.
