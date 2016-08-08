@@ -9,6 +9,7 @@
  #define FIRSTLINE 0x80	       ;Go to the first line in LCD
  #define SECONDLINE 0xC0	;Go to the second line in LCD 
  #define MODE8BIT5x8M 0x38	;To select 8 bit mode in LCD
+ #define MODE4BIT5x8M 0x28
  #define DISPLAYON 0x0C		;To turnON LCD
  #define TRISEnable TRISA	;TRIS of PORT in that Enable pin is. 
  #define PORTEnable PORTA	;Port in that pin Enable is.
@@ -16,11 +17,13 @@
  #define TRISRS	TRISA	;TRIS of PORT in that RS pin is.
  #define RS 0		;Command or data
  #define Enable 1		;Pin to latch the data in LCD mem
+ #define npdata b'00001111'  ; No place of the data that is send in the PORT 
  
  ;****************************************************************VAR DEFINITION
     CBLOCK 0x20
     delayvar:3
     counter
+    wtemp
     ENDC
     
  org 0
@@ -29,6 +32,7 @@
 main:
     call initialconfig
     call initialmsgLCD
+    ;goto $
     goto main
 ;******************************************************INITIAL MESSAGE SUBRUTINE
 initialmsgLCD:
@@ -70,7 +74,7 @@ initialconfig:
     banksel PORTRS
     bcf PORTRS,RS  ;Initial value for Enable pin  
     
-    movlw 0x02
+    movlw 0x03
     call delayW0ms ; Wait 10ms for Start up of LCD
     
     clrf counter
@@ -92,17 +96,106 @@ pulseEnable:
     bcf PORTEnable,Enable
     return
 pData:
-    movwf LCDdata
+    movwf wtemp ;For send the low nibble 
+    btfsc wtemp,7
+    bsf LCDdata,7
+    btfss wtemp,7
+    bcf LCDdata,7
+    
+    btfsc wtemp,6
+    bsf LCDdata,6
+    btfss wtemp,6
+    bcf LCDdata,6
+    
+    btfsc wtemp,5
+    bsf LCDdata,5
+    btfss wtemp,5
+    bcf LCDdata,5
+    
+    btfsc wtemp,4
+    bsf LCDdata,4
+    btfss wtemp,4
+    bcf LCDdata,4
+    
     bsf PORTRS,RS
     call pulseEnable
-    movlw 0x02
+    movlw 0x01
+    call delayW0ms ; Wait for execute another command or intruction
+    
+    btfsc wtemp,3
+    bsf LCDdata,7
+    btfss wtemp,3
+    bcf LCDdata,7
+    
+    btfsc wtemp,2
+    bsf LCDdata,6
+    btfss wtemp,2
+    bcf LCDdata,6
+    
+    btfsc wtemp,1
+    bsf LCDdata,5
+    btfss wtemp,1
+    bcf LCDdata,5
+    
+    btfsc wtemp,0
+    bsf LCDdata,4
+    btfss wtemp,0
+    bcf LCDdata,4
+    
+    call pulseEnable
+    movlw 0x01
     call delayW0ms ; Wait for execute another command or intruction
     return
+    
 command:
-    movwf LCDdata
+    movwf wtemp ;For send the low nibble 
+    
+    btfsc wtemp,7
+    bsf LCDdata,7
+    btfss wtemp,7
+    bcf LCDdata,7
+    
+    btfsc wtemp,6
+    bsf LCDdata,6
+    btfss wtemp,6
+    bcf LCDdata,6
+    
+    btfsc wtemp,5
+    bsf LCDdata,5
+    btfss wtemp,5
+    bcf LCDdata,5
+    
+    btfsc wtemp,4
+    bsf LCDdata,4
+    btfss wtemp,4
+    bcf LCDdata,4
+    
     bcf PORTRS,RS
     call pulseEnable
-    movlw 0x02
+    movlw 0x01
+    call delayW0ms ; Wait for execute another command or instruction
+    
+    btfsc wtemp,3
+    bsf LCDdata,7
+    btfss wtemp,3
+    bcf LCDdata,7
+    
+    btfsc wtemp,2
+    bsf LCDdata,6
+    btfss wtemp,2
+    bcf LCDdata,6
+    
+    btfsc wtemp,1
+    bsf LCDdata,5
+    btfss wtemp,1
+    bcf LCDdata,5
+    
+    btfsc wtemp,0
+    bsf LCDdata,4
+    btfss wtemp,0
+    bcf LCDdata,4
+    call pulseEnable
+    movlw 0x01
     call delayW0ms ; Wait for execute another command or instruction
     return
 ;***************************************************************DELAY SUBRUTINES    
@@ -128,9 +221,9 @@ d2:    call delay10ms
     
 ;****************************************************************Packages to LCD   
 ctrLCD: addwf PCL,F
-     dt MODE8BIT5x8M,DISPLAYON,CLEARSCREEN,FIRSTLINE,0
+     dt MODE4BIT5x8M,DISPLAYON,CLEARSCREEN,FIRSTLINE,0
 msg1:addwf PCL,F
-     dt " WELCOME        ",0 ;to call charge the PCLATH (HIGH msg1)
+     dt " THANK U GOD    ",0 ;to call charge the PCLATH (HIGH msg1)
 msg2:addwf PCL,F    
      dt " Time:          ",0 
     
